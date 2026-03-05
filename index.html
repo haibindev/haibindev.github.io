@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>海滨code | 技术博主</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --border: #30363d;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --accent: #58a6ff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .card {
+      max-width: 560px;
+      width: 100%;
+    }
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      margin-bottom: 1.2rem;
+    }
+    h1 { font-size: 1.5rem; margin-bottom: 0.3rem; }
+    .tagline { color: var(--muted); margin-bottom: 1.5rem; font-size: 0.95rem; }
+    .bio { color: var(--muted); margin-bottom: 2rem; font-size: 0.9rem; }
+    .section-title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+      margin-top: 1.8rem;
+    }
+    .links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .link {
+      display: inline-block;
+      padding: 0.35rem 0.8rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: border-color 0.2s;
+    }
+    .link:hover { border-color: var(--accent); }
+    .articles { list-style: none; }
+    .articles li { margin-bottom: 0.6rem; }
+    .articles a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .articles a:hover { color: var(--accent); }
+    .articles .meta { color: var(--muted); font-size: 0.78rem; margin-left: 0.5rem; }
+    .footer { margin-top: 3rem; color: var(--muted); font-size: 0.78rem; }
+  </style>
+</head>
+<body>
+  <div class="card">
+
+    <img class="avatar"
+         src="https://github.com/haibindev.png"
+         alt="avatar">
+
+    <h1>海滨code</h1>
+    <p class="tagline">10年+ 码农 · AI 工具研究者 · 技术博主</p>
+    <p class="bio">
+      前某互联网大厂技术专家，现专注 AI 工程化落地。<br>
+      写给真正在用 AI 写代码的开发者。
+    </p>
+
+    <div class="section-title">找到我</div>
+    <div class="links">
+      <a class="link" href="https://www.cnblogs.com/haibindev" target="_blank">博客园cnblogs</a>
+      <a class="link" href="https://www.zhihu.com/people/zhithgbk5g" target="_blank">知乎</a>
+      <a class="link" href="https://blog.csdn.net/haibindev" target="_blank">CSDN</a>
+      <a class="link" href="https://juejin.cn/user/2385290324087307" target="_blank">掘金</a>
+      <a class="link" href="https://github.com/haibindev" target="_blank">GitHub</a>
+      <a class="link" href="https://x.com/haibindev" target="_blank">X</a>
+    </div>
+
+    <div class="section-title">精选文章</div>
+    <ul class="articles">
+      <!-- 换成你自己的文章链接 -->
+      <li>
+        <a href="文章链接1" target="_blank">别买 Mac Mini 了，闲置笔记本配置 OpenClaw</a>
+        <span class="meta">2026-03</span>
+      </li>
+      <li>
+        <a href="https://www.cnblogs.com/haibindev/p/19643999" target="_blank">为什么 90% 的 AI 开发项目都死在了“提示词工程”的幻觉里？</a>
+        <span class="meta">2026-02</span>
+      </li>
+      <li>
+        <a href="https://www.cnblogs.com/haibindev/p/19563454" target="_blank">Google正式上线Gemini In Chrome，国内环境怎样开启。</a>
+        <span class="meta">2026-01</span>
+      </li>
+      <li>
+        <a href="https://www.cnblogs.com/haibindev/p/19554073" target="_blank">国内四大AI编程IDE对比（二）：从零构建桌面应用实测（补上Trae）</a>
+        <span class="meta">2026-01</span>
+      </li>
+    </ul>
+
+    <p class="footer">haibindev.github.io</p>
+
+  </div>
+</body>
+</html>
