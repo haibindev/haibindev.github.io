@@ -57,6 +57,7 @@
       text-decoration: none;
       font-size: 0.85rem;
       transition: border-color 0.2s;
+      cursor: pointer;
     }
     .link:hover { border-color: var(--accent); }
     .articles { list-style: none; }
@@ -69,6 +70,67 @@
     .articles a:hover { color: var(--accent); }
     .articles .meta { color: var(--muted); font-size: 0.78rem; margin-left: 0.5rem; }
     .footer { margin-top: 3rem; color: var(--muted); font-size: 0.78rem; }
+
+    /* 微信弹窗 */
+    .wechat-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+    }
+    .wechat-modal-overlay.show { display: flex; }
+    .wechat-modal {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      min-width: 220px;
+    }
+    .wechat-modal p {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+    .wechat-id {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: 0.05em;
+      margin-bottom: 1.2rem;
+    }
+    .copy-btn {
+      display: inline-block;
+      padding: 0.4rem 1.2rem;
+      background: var(--accent);
+      color: #0d1117;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .copy-btn:hover { opacity: 0.85; }
+    .copy-hint {
+      margin-top: 0.7rem;
+      font-size: 0.78rem;
+      color: #3fb950;
+      min-height: 1.2em;
+    }
+    .modal-close {
+      margin-top: 1rem;
+      display: block;
+      color: var(--muted);
+      font-size: 0.8rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+    .modal-close:hover { color: var(--text); }
   </style>
 </head>
 <body>
@@ -94,17 +156,17 @@
       <a class="link" href="https://www.xiaohongshu.com/user/profile/69a41ba00000000021013238" target="_blank">小红书</a>
       <a class="link" href="https://github.com/haibindev" target="_blank">GitHub</a>
       <a class="link" href="https://x.com/haibindev" target="_blank">X</a>
+      <span class="link" onclick="document.getElementById('wechat-modal').classList.add('show')">微信</span>
     </div>
 
     <div class="section-title">精选文章</div>
     <ul class="articles">
-      <!-- 换成你自己的文章链接 -->
       <li>
-        <a href="文章链接1" target="_blank">别买 Mac Mini 了，闲置笔记本配置 OpenClaw</a>
+        <a href="https://www.cnblogs.com/haibindev/p/19678796" target="_blank">别买 Mac Mini 了，闲置笔记本配置 OpenClaw</a>
         <span class="meta">2026-03</span>
       </li>
       <li>
-        <a href="https://www.cnblogs.com/haibindev/p/19643999" target="_blank">为什么 90% 的 AI 开发项目都死在了“提示词工程”的幻觉里？</a>
+        <a href="https://www.cnblogs.com/haibindev/p/19643999" target="_blank">为什么 90% 的 AI 开发项目都死在了"提示词工程"的幻觉里？</a>
         <span class="meta">2026-02</span>
       </li>
       <li>
@@ -120,5 +182,27 @@
     <p class="footer">haibindev.github.io</p>
 
   </div>
+
+  <!-- 微信弹窗 -->
+  <div class="wechat-modal-overlay" id="wechat-modal"
+       onclick="if(event.target===this) this.classList.remove('show')">
+    <div class="wechat-modal">
+      <p>微信搜索添加</p>
+      <div class="wechat-id">hbstream</div>
+      <button class="copy-btn" onclick="copyWechat()">复制微信号</button>
+      <div class="copy-hint" id="copy-hint"></div>
+      <button class="modal-close" onclick="document.getElementById('wechat-modal').classList.remove('show')">关闭</button>
+    </div>
+  </div>
+
+  <script>
+    function copyWechat() {
+      navigator.clipboard.writeText('hbstream').then(function() {
+        const hint = document.getElementById('copy-hint');
+        hint.textContent = '已复制！去微信搜索添加吧 ✓';
+        setTimeout(function() { hint.textContent = ''; }, 3000);
+      });
+    }
+  </script>
 </body>
 </html>
