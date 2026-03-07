@@ -25,13 +25,9 @@
       justify-content: center;
       padding: 2rem;
     }
-    .card {
-      max-width: 560px;
-      width: 100%;
-    }
+    .card { max-width: 560px; width: 100%; }
     .avatar {
-      width: 80px;
-      height: 80px;
+      width: 80px; height: 80px;
       border-radius: 50%;
       border: 2px solid var(--border);
       margin-bottom: 1.2rem;
@@ -49,7 +45,9 @@
     }
     .links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
     .link {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
       padding: 0.35rem 0.8rem;
       border: 1px solid var(--border);
       border-radius: 6px;
@@ -58,21 +56,19 @@
       font-size: 0.85rem;
       transition: border-color 0.2s;
       cursor: pointer;
+      background: none;
     }
     .link:hover { border-color: var(--accent); }
+    .link svg { width: 14px; height: 14px; fill: currentColor; flex-shrink: 0; }
     .articles { list-style: none; }
     .articles li { margin-bottom: 0.6rem; }
-    .articles a {
-      color: var(--text);
-      text-decoration: none;
-      font-size: 0.9rem;
-    }
+    .articles a { color: var(--text); text-decoration: none; font-size: 0.9rem; }
     .articles a:hover { color: var(--accent); }
     .articles .meta { color: var(--muted); font-size: 0.78rem; margin-left: 0.5rem; }
     .footer { margin-top: 3rem; color: var(--muted); font-size: 0.78rem; }
 
-    /* 微信弹窗 */
-    .wechat-modal-overlay {
+    /* 弹窗通用 */
+    .modal-overlay {
       display: none;
       position: fixed;
       inset: 0;
@@ -81,8 +77,8 @@
       align-items: center;
       justify-content: center;
     }
-    .wechat-modal-overlay.show { display: flex; }
-    .wechat-modal {
+    .modal-overlay.show { display: flex; }
+    .modal {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 12px;
@@ -90,12 +86,8 @@
       text-align: center;
       min-width: 220px;
     }
-    .wechat-modal p {
-      color: var(--muted);
-      font-size: 0.85rem;
-      margin-bottom: 1rem;
-    }
-    .wechat-id {
+    .modal p { color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    .modal-value {
       font-size: 1.2rem;
       font-weight: 600;
       color: var(--text);
@@ -115,12 +107,7 @@
       transition: opacity 0.2s;
     }
     .copy-btn:hover { opacity: 0.85; }
-    .copy-hint {
-      margin-top: 0.7rem;
-      font-size: 0.78rem;
-      color: #3fb950;
-      min-height: 1.2em;
-    }
+    .copy-hint { margin-top: 0.7rem; font-size: 0.78rem; color: #3fb950; min-height: 1.2em; }
     .modal-close {
       margin-top: 1rem;
       display: block;
@@ -136,9 +123,7 @@
 <body>
   <div class="card">
 
-    <img class="avatar"
-         src="https://github.com/haibindev.png"
-         alt="avatar">
+    <img class="avatar" src="https://github.com/haibindev.png" alt="avatar">
 
     <h1>海滨code</h1>
     <p class="tagline">10年+ 码农 · AI 工具研究者 · 技术博主</p>
@@ -149,14 +134,61 @@
 
     <div class="section-title">找到我</div>
     <div class="links">
-      <a class="link" href="https://www.cnblogs.com/haibindev" target="_blank">博客园</a>
-      <a class="link" href="https://www.zhihu.com/people/zhithgbk5g" target="_blank">知乎</a>
-      <a class="link" href="https://blog.csdn.net/haibindev" target="_blank">CSDN</a>
-      <a class="link" href="https://juejin.cn/user/2385290324087307" target="_blank">掘金</a>
-      <a class="link" href="https://www.xiaohongshu.com/user/profile/69a41ba00000000021013238" target="_blank">小红书</a>
-      <a class="link" href="https://github.com/haibindev" target="_blank">GitHub</a>
-      <a class="link" href="https://x.com/haibindev" target="_blank">X</a>
-      <span class="link" onclick="document.getElementById('wechat-modal').classList.add('show')">微信</span>
+
+      <a class="link" href="https://www.cnblogs.com/haibindev" target="_blank">
+        <!-- 博客园：笔形图标 -->
+        <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+        博客园
+      </a>
+
+      <a class="link" href="https://www.zhihu.com/people/zhithgbk5g" target="_blank">
+        <!-- 知乎 -->
+        <svg viewBox="0 0 24 24"><path d="M5.721 0C2.251 0 0 2.25 0 5.719V18.28C0 21.751 2.252 24 5.721 24H18.28C21.751 24 24 21.75 24 18.281V5.72C24 2.249 21.75 0 18.281 0zm6.802 6.158-.941 2.143H8.512l-.046.089 2.214 2.29-.85 2.804-1.904-2.021-.89 3.175H5.176l1.137-3.988-2.233-2.352h2.95l.71-2.14zm3.49 0h2.017l-3.029 9.926-.988-1.069 1.071-3.521-1.56-3.352 1.053-1.984h.862c.574 0 1.041.044 1.041.044l1.052-1.062-.094 1.018zm-4.85 9.49v2.21h-2.17v-2.21h2.17zm4.85 0v2.21h-2.17v-2.21h2.17z"/></svg>
+        知乎
+      </a>
+
+      <a class="link" href="https://blog.csdn.net/haibindev" target="_blank">
+        <!-- CSDN：代码标签图标 -->
+        <svg viewBox="0 0 24 24"><path d="M9.4 16.6 4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0 4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+        CSDN
+      </a>
+
+      <a class="link" href="https://juejin.cn/user/2385290324087307" target="_blank">
+        <!-- 掘金：钻石图标 -->
+        <svg viewBox="0 0 24 24"><path d="M12 2 2 9l10 7 10-7-10-7zm0 11.5L5.23 9 12 4.5 18.77 9 12 13.5zM2 15l10 7 10-7-1.5-1.05L12 19.5l-8.5-5.55L2 15z"/></svg>
+        掘金
+      </a>
+
+      <a class="link" href="https://www.xiaohongshu.com/user/profile/69a41ba00000000021013238" target="_blank">
+        <!-- 小红书：书本图标 -->
+        <svg viewBox="0 0 24 24"><path d="M18 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm-5 14H8v-2h5v2zm3-4H8v-2h8v2zm0-4H8V6h8v2z"/></svg>
+        小红书
+      </a>
+
+      <a class="link" href="https://github.com/haibindev" target="_blank">
+        <!-- GitHub -->
+        <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        GitHub
+      </a>
+
+      <a class="link" href="https://x.com/haibindev" target="_blank">
+        <!-- X -->
+        <svg viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+        X
+      </a>
+
+      <span class="link" onclick="openModal('wechat-modal')">
+        <!-- 微信 -->
+        <svg viewBox="0 0 24 24"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 0 1 .598.082l1.584.926a.272.272 0 0 0 .14.047c.134 0 .24-.111.24-.247 0-.06-.023-.12-.038-.177l-.327-1.233a.582.582 0 0 1-.023-.156.49.49 0 0 1 .201-.398C23.024 18.48 24 16.82 24 14.98c0-3.21-2.931-5.837-7.062-6.122zm-3.518 3.274c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.969-.982zm4.845 0c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.969-.982z"/></svg>
+        微信
+      </span>
+
+      <span class="link" onclick="openModal('email-modal')">
+        <!-- 邮件 -->
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        邮件
+      </span>
+
     </div>
 
     <div class="section-title">精选文章</div>
@@ -184,22 +216,34 @@
   </div>
 
   <!-- 微信弹窗 -->
-  <div class="wechat-modal-overlay" id="wechat-modal"
-       onclick="if(event.target===this) this.classList.remove('show')">
-    <div class="wechat-modal">
+  <div class="modal-overlay" id="wechat-modal" onclick="if(event.target===this) closeModal('wechat-modal')">
+    <div class="modal">
       <p>微信搜索添加</p>
-      <div class="wechat-id">hbstream</div>
-      <button class="copy-btn" onclick="copyWechat()">复制微信号</button>
-      <div class="copy-hint" id="copy-hint"></div>
-      <button class="modal-close" onclick="document.getElementById('wechat-modal').classList.remove('show')">关闭</button>
+      <div class="modal-value">hbstream</div>
+      <button class="copy-btn" onclick="copyText('hbstream','wechat-hint')">复制微信号</button>
+      <div class="copy-hint" id="wechat-hint"></div>
+      <button class="modal-close" onclick="closeModal('wechat-modal')">关闭</button>
+    </div>
+  </div>
+
+  <!-- 邮件弹窗 -->
+  <div class="modal-overlay" id="email-modal" onclick="if(event.target===this) closeModal('email-modal')">
+    <div class="modal">
+      <p>发邮件联系</p>
+      <div class="modal-value" id="email-value">haibindev@gmail.com</div>
+      <button class="copy-btn" onclick="copyText(document.getElementById('email-value').textContent,'email-hint')">复制邮箱</button>
+      <div class="copy-hint" id="email-hint"></div>
+      <button class="modal-close" onclick="closeModal('email-modal')">关闭</button>
     </div>
   </div>
 
   <script>
-    function copyWechat() {
-      navigator.clipboard.writeText('hbstream').then(function() {
-        const hint = document.getElementById('copy-hint');
-        hint.textContent = '已复制！去微信搜索添加吧 ✓';
+    function openModal(id) { document.getElementById(id).classList.add('show'); }
+    function closeModal(id) { document.getElementById(id).classList.remove('show'); }
+    function copyText(text, hintId) {
+      navigator.clipboard.writeText(text).then(function() {
+        var hint = document.getElementById(hintId);
+        hint.textContent = '已复制 ✓';
         setTimeout(function() { hint.textContent = ''; }, 3000);
       });
     }
