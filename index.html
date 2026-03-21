@@ -3,7 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>海滨code | 技术博主</title>
+  <title>海滨code | C++ AI 工程实践 · 一人技术公司</title>
+  <meta name="description" content="10年+ C++ 开发者，用 AI 武装自己做一个人的技术公司。专注 AI 工程化落地、代码资产管理、浏览器自动化。开源项目：repo-scan / brosearch / EasyAgentCli。">
+  <meta name="author" content="海滨code">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://haibindev.github.io/">
+  <meta property="og:title" content="海滨code | C++ AI 工程实践">
+  <meta property="og:description" content="10年+ C++ 开发者，用 AI 武装自己做一个人的技术公司。专注 AI 工程化落地、代码资产管理、浏览器自动化。">
+  <meta property="og:image" content="https://github.com/haibindev.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@haibindev">
+  <meta name="twitter:title" content="海滨code | C++ AI 工程实践">
+  <meta name="twitter:description" content="10年+ C++ 开发者，用 AI 武装自己做一个人的技术公司。">
+  <meta name="twitter:image" content="https://github.com/haibindev.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "海滨code",
+    "alternateName": "haibindev",
+    "url": "https://haibindev.github.io/",
+    "image": "https://github.com/haibindev.png",
+    "jobTitle": "独立技术创业者",
+    "description": "10年+ C++ 开发者，用 AI 武装自己做一个人的技术公司。专注 AI 工程化落地、代码资产管理、浏览器自动化。",
+    "sameAs": [
+      "https://github.com/haibindev",
+      "https://x.com/haibindev",
+      "https://www.cnblogs.com/haibindev",
+      "https://blog.csdn.net/haibindev",
+      "https://juejin.cn/user/2385290324087307",
+      "https://www.zhihu.com/people/zhithgbk5g"
+    ]
+  }
+  </script>
   <style>
     :root {
       --bg: #0d1117;
@@ -78,6 +110,22 @@
     }
     .link-icon:hover { border-color: var(--accent); }
     .link-icon svg { width: 15px; height: 15px; fill: currentColor; flex-shrink: 0; }
+
+    /* 开源项目列表 */
+    .projects { list-style: none; }
+    .projects li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #21262d;
+      font-size: 0.92rem;
+    }
+    .projects li:last-child { border-bottom: none; }
+    .projects a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .projects a:hover { text-decoration: underline; }
+    .projects .proj-desc { color: var(--muted); }
 
     /* 文章列表 */
     .articles { list-style: none; }
@@ -160,11 +208,28 @@
     <img class="avatar" src="https://github.com/haibindev.png" alt="avatar">
 
     <h1>海滨code</h1>
-    <p class="tagline">10年+ 架构师/产品经理/码农 · AI 工具研究者 · 技术博主</p>
+    <p class="tagline">10年+ C++ 底层开发 · AI 工程实践者 · 一人技术公司</p>
     <p class="bio">
       常年专注原生应用和高性能服务开发、视频传输和处理技术。用AI重构了自己的工作流。<br>
       现专注 AI 工程化落地，写给真正在用 AI 写代码的开发者。
     </p>
+
+    <!-- 开源项目 -->
+    <div class="section-title">开源项目</div>
+    <ul class="projects">
+      <li>
+        <a href="https://github.com/haibindev/repo-scan" target="_blank">repo-scan</a>
+        <span class="proj-desc"> — AI 驱动的代码库扫描与资产统计工具</span>
+      </li>
+      <li>
+        <a href="https://github.com/haibindev/brosearch" target="_blank">brosearch</a>
+        <span class="proj-desc"> — Chrome 扩展，为 AI Agent 提供浏览器内网页数据桥</span>
+      </li>
+      <li>
+        <a href="https://github.com/haibindev/EasyAgentCli" target="_blank">EasyAgentCli</a>
+        <span class="proj-desc"> — 极简 AI Agent CLI 框架，解决多工具链整合痛点</span>
+      </li>
+    </ul>
 
     <!-- 写作平台 -->
     <div class="section-title">写作平台</div>

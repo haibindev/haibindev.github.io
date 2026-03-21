@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://haibindev.github.io/sitemap.xml
